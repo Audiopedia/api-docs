@@ -1,0 +1,99 @@
+
+introspection: http://127.0.0.1:8000/graphql/
+
+servers:
+  - url: http://127.0.0.1:8000/graphql/
+    description: API endpoint
+
+info:
+  description: |
+    This is the API documentation for the audiopedia.app.
+
+    If you wish to run the interactive GraphIQL tool or try out the queries in the docs, first start the API server using
+    `python manage.py runserver`.
+
+    There are also example uses of each of these queries/mutations in `api/audiopedia/test_audios.py`.
+  
+    **Note**: The "object" type that you see in the docs refer to the `graphene.ID` type. Read more about it [here](#/definitions/ID).
+  version: 1.0.0
+  title: audiopedia.app
+
+domains:
+  - name: Fetching Data
+    description: | 
+        Base methods to fetch specific pieces of data. 
+
+        You are not required to list all of the fields you see in the query (id, title, etc...). You can select and choose which fields you want from the query.
+    usecases:
+     - name: allTracks
+       description: Get a list of all tracks.
+       query: query.allTracks 
+     - name: allPlaylists
+       description: |
+        Get a list of all playlists.
+
+        If you include `tracks` in the query you will also obtain a list of all the tracks the playlist contains. You can also choose to omit the field.
+       query: query.allPlaylists
+       expand: tracks
+     - name: allTopics
+       description: |
+        Get a list of all the topics.
+
+        If you include `playlists` in the query you will also obtain a list of all the playlists the track contains. You can also choose to omit the field.
+
+        You can also choose which field to include while querying the playlists within the playlists.
+       query: query.allTopics
+       expand: tracks,playlists
+     - name: allLanguages
+       description: Get a list of all the supported languages.
+       query: query.allLanguages 
+  - name: Creating Data
+    description: Mutations to create new data.
+    usecases:
+     - name: createTrack
+       description: Creates a new track.
+       query: mutation.createTrack     
+     - name: createPlaylist
+       description: Create a new playlist.
+       query: mutation.createPlaylist
+     - name: createTopic
+       description: Create a new topic.
+       query: mutation.createTopic
+     - name: createLanguage
+       description: Support a new language.
+       query: mutation.createLanguage
+  
+  - name: Updating Data
+    description: Mutations to update certain fields of a data.
+    usecases:
+      - name: updateTrack
+        description: Update certain fields of a track.
+        query: mutation.updateTrack
+      - name: updatePlaylist
+        description: Update certain fields of a playlist.
+        query: mutation.updatePlaylist
+      - name: updateTopic
+        description: Update certain fields of a topic.
+        query: mutation.updateTopic
+      - name: updateLanguage
+        description: Update certain fields of a language.
+        query: mutation.updateLanguage
+
+  - name: Deleting Data
+    description: Mutations to delete specified data.
+    usecases:
+      - name: deleteTrack
+        description: Delete a track
+        query: mutation.deleteTrack
+      - name: deletePlaylist
+        description: Delete a playlist
+        query: mutation.deletePlaylist
+      - name: deleteTopic
+        description: Delete a topic
+        query: mutation.deleteTopic
+      - name: deleteLanguage
+        description: Delete a language
+        query: mutation.deleteLanguage
+  
+     
+  
