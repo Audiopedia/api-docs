@@ -1,6 +1,9 @@
 # api-docs
 
+Access the docs here: https://audiopedia-t4sg.github.io/api-docs/
+
 ### How to update the docs
+
 1. Clone the `audiopedia-t4sg/api` repo.
 2. Navigate to `api/audiopedia`
 3. Install any necessary libraries/modules with `requirements.txt`
