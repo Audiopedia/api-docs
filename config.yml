@@ -19,12 +19,36 @@ info:
   title: audiopedia.app
 
 domains:
+  - name: Authentication
+    description: |
+      Queries and mutations for authentication.
+
+      **Note:** To authenticate with tokens and login, we have to pass the `tokenAuth` mutation along with an `Authorization` HTTP header that contains the token prefixed by `JWT`.
+
+      For more information take a look [at the bottom of this page.](https://www.howtographql.com/graphql-python/4-authentication/)
+    usecases:
+     - name: currentUser
+       description: Get the current user that has logged in
+       query: query.currentUser
+     - name: tokenAuth
+       description: Login to the system with username and password and return the user's token
+       query: mutation.tokenAuth
+     - name: verifyToken
+       description: Check if a token is valid
+       query: mutation.verifyToken
+     - name: refreshToken
+       description: Get a new token once the old one is expired
+       query: mutation.refreshToken
+     
   - name: Fetching Data
-    description: | 
+    description: |
         Base methods to fetch specific pieces of data. 
 
         You are not required to list all of the fields you see in the query (id, title, etc...). You can select and choose which fields you want from the query.
     usecases:
+     - name: allUsers
+       description: Get a list of all users.
+       query: query.allUsers
      - name: allTracks
        description: Get a list of all tracks.
        query: query.allTracks 
@@ -50,6 +74,9 @@ domains:
   - name: Creating Data
     description: Mutations to create new data.
     usecases:
+     - name: createUser
+       description: Creates a new user.
+       query: mutation.createUser 
      - name: createTrack
        description: Creates a new track.
        query: mutation.createTrack     
