@@ -9,12 +9,9 @@ info:
   description: |
     This is the API documentation for the audiopedia.app.
 
-    If you wish to run the interactive GraphIQL tool or try out the queries in the docs, first start the API server using
-    `python manage.py runserver`.
+    **Note that any mutations and queries that access the database require authentication.** Check the [Authentication](#tag-Authentication) section description for more details.
 
     There are also example uses of each of these queries/mutations in `api/audiopedia/test_audios.py`.
-  
-    **Note**: The "object" type that you see in the docs refer to the `graphene.ID` type. Read more about it [here](#/definitions/ID).
   version: 1.0.0
   title: audiopedia.app
 
@@ -23,15 +20,18 @@ domains:
     description: |
       Queries and mutations for authentication.
 
-      **Note:** To authenticate with tokens and login, we have to pass the `tokenAuth` mutation along with an `Authorization` HTTP header that contains the token prefixed by `JWT`.
+      You'll need to create an account if you have not done so for authentication: take a look at the [createUser](#operation-createuser-post) mutation.
 
-      For more information take a look [at the bottom of this page.](https://www.howtographql.com/graphql-python/4-authentication/)
+      To obtain the token, you'll need to login using the [tokenAuth](#operation-tokenauth-post) mutation to get the token in the response.
+
+      To perform queries and mutations, you will need to have an `Authorization` HTTP header with a value of `JWT [TOKEN]`
     usecases:
      - name: currentUser
-       description: Get the current user that has logged in
+       description: |
+        Get user data associated with the token passed along by the Authorization header
        query: query.currentUser
      - name: tokenAuth
-       description: Login to the system with username and password and return the user's token
+       description: Obtain a user's token using their username and password
        query: mutation.tokenAuth
      - name: verifyToken
        description: Check if a token is valid

@@ -158,11 +158,10 @@
             <div class="doc-row">
               <div class="doc-copy">
                 <p>This is the API documentation for the audiopedia.app.</p>
-                <p>If you wish to run the interactive GraphIQL tool or try out the queries in the docs, first start the API server using <code>python manage.py runserver</code>.</p>
-                <p>There are also example uses of each of these queries/mutations in <code>api/audiopedia/test_audios.py</code>.</p>
                 <p>
-                  <strong>Note</strong>: The &quot;object&quot; type that you see in the docs refer to the <code>graphene.ID</code> type. Read more about it
-                  <a href="#/definitions/ID">here</a>.</p>
+                  <strong>Note that any mutations and queries that access the database require authentication.</strong> Check the
+                  <a href="#tag-Authentication">Authentication</a> section description for more details.</p>
+                <p>There are also example uses of each of these queries/mutations in <code>api/audiopedia/test_audios.py</code>.</p>
               </div>
               <div class="doc-examples">
                 <section>
@@ -182,11 +181,11 @@ http://127.0.0.1:8000/graphql/
           <div class="tag-description doc-row">
             <div class="doc-copy">
               <p>Queries and mutations for authentication.</p>
-              <p>
-                <strong>Note:</strong> To authenticate with tokens and login, we have to pass the <code>tokenAuth</code> mutation along with an <code>Authorization</code> HTTP header that contains the token prefixed by <code>JWT</code>.</p>
-              <p>For more information take a look
-                <a href="https://www.howtographql.com/graphql-python/4-authentication/">at the bottom of this page.</a>
-              </p>
+              <p>You&#39;ll need to create an account if you have not done so for authentication: take a look at the
+                <a href="#operation-createuser-post">createUser</a> mutation.</p>
+              <p>To obtain the token, you&#39;ll need to login using the
+                <a href="#operation-tokenauth-post">tokenAuth</a> mutation to get the token in the response.</p>
+              <p>To perform queries and mutations, you will need to have an <code>Authorization</code> HTTP header with a value of <code>JWT [TOKEN]</code></p>
             </div>
           </div>
           <div id="operation-currentuser-post" class="operation panel" data-traverse-target="operation-currentuser-post">
@@ -204,7 +203,7 @@ http://127.0.0.1:8000/graphql/
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-operation-description">
-                  <p>Get the current user that has logged in</p>
+                  <p>Get user data associated with the token passed along by the Authorization header</p>
                 </section>
               </div>
             </div>
@@ -316,7 +315,7 @@ http://127.0.0.1:8000/graphql/
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-operation-description">
-                  <p>Login to the system with username and password and return the user&#39;s token</p>
+                  <p>Obtain a user&#39;s token using their username and password</p>
                 </section>
               </div>
             </div>
