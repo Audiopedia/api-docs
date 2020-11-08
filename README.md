@@ -9,4 +9,5 @@ Access the docs here: https://audiopedia-t4sg.github.io/api-docs/
 3. Install any necessary libraries/modules with `requirements.txt`
 4. Install dociql if you haven't already: `npm install -g dociql`
 5. Start the test server with `python3 manage.py runserver`
-6. Return to `api-docs` directory and run `dociql -d config.yml`!
+6. Return to `api-docs` directory and run `dociql -t docs -d config.yml` !
+

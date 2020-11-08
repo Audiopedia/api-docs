@@ -363,6 +363,8 @@ http://127.0.0.1:8000/graphql/
                     <head></head>
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> tokenAuth<span class="hljs-tag">(<span class="hljs-code">$username</span>:<span class="hljs-type"> String!</span>, <span class="hljs-code">$password</span>:<span class="hljs-type"> String!</span>)</span><span class="hljs-tag">{
   <span class="hljs-symbol">tokenAuth<span class="hljs-tag">(username: <span class="hljs-code">$username</span>, password: <span class="hljs-code">$password</span>)</span><span class="hljs-tag">{
+    <span class="hljs-symbol">payload</span>
+    <span class="hljs-symbol">refreshExpiresIn</span>
     <span class="hljs-symbol">token</span>
   }</span></span>
 }</span></span>
@@ -380,7 +382,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20tokenAuth(%24username%3A%20String!%2C%20%24password%3A%20String!)%7B%0A%20%20tokenAuth(username%3A%20%24username%2C%20password%3A%20%24password)%7B%0A%20%20%20%20token%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20tokenAuth(%24username%3A%20String!%2C%20%24password%3A%20String!)%7B%0A%20%20tokenAuth(username%3A%20%24username%2C%20password%3A%20%24password)%7B%0A%20%20%20%20payload%0A%20%20%20%20refreshExpiresIn%0A%20%20%20%20token%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -422,6 +424,7 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;tokenAuth&quot;</span>: {
+      <span class="hljs-attr">&quot;refreshExpiresIn&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
       <span class="hljs-attr">&quot;token&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
@@ -600,8 +603,9 @@ http://127.0.0.1:8000/graphql/
                     <head></head>
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> refreshToken<span class="hljs-tag">(<span class="hljs-code">$token</span>:<span class="hljs-type"> String)</span>{
   refreshToken(token: <span class="hljs-code">$token</span>)</span><span class="hljs-tag">{
-    <span class="hljs-symbol">token</span>
     <span class="hljs-symbol">payload</span>
+    <span class="hljs-symbol">refreshExpiresIn</span>
+    <span class="hljs-symbol">token</span>
   }</span></span>
 }
 </code></pre> </body>
@@ -617,7 +621,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20refreshToken(%24token%3A%20String)%7B%0A%20%20refreshToken(token%3A%20%24token)%7B%0A%20%20%20%20token%0A%20%20%20%20payload%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20refreshToken(%24token%3A%20String)%7B%0A%20%20refreshToken(token%3A%20%24token)%7B%0A%20%20%20%20payload%0A%20%20%20%20refreshExpiresIn%0A%20%20%20%20token%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -659,6 +663,7 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;refreshToken&quot;</span>: {
+      <span class="hljs-attr">&quot;refreshExpiresIn&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
       <span class="hljs-attr">&quot;token&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
@@ -1447,6 +1452,7 @@ http://127.0.0.1:8000/graphql/
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> createTrack<span class="hljs-tag">(<span class="hljs-code">$input</span>:<span class="hljs-type"> TrackInput!</span>)</span><span class="hljs-tag">{
   <span class="hljs-symbol">createTrack<span class="hljs-tag">(input: <span class="hljs-code">$input</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
+    <span class="hljs-symbol">user</span>
   }</span></span>
 }</span></span>
 </code></pre> </body>
@@ -1470,7 +1476,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20createTrack(%24input%3A%20TrackInput!)%7B%0A%20%20createTrack(input%3A%20%24input)%7B%0A%20%20%20%20ok%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20createTrack(%24input%3A%20TrackInput!)%7B%0A%20%20createTrack(input%3A%20%24input)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -1512,7 +1518,8 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;createTrack&quot;</span>: {
-      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
 }
@@ -1578,6 +1585,7 @@ http://127.0.0.1:8000/graphql/
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> createPlaylist<span class="hljs-tag">(<span class="hljs-code">$input</span>:<span class="hljs-type"> PlaylistInput!</span>)</span><span class="hljs-tag">{
   <span class="hljs-symbol">createPlaylist<span class="hljs-tag">(input: <span class="hljs-code">$input</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
+    <span class="hljs-symbol">user</span>
   }</span></span>
 }</span></span>
 </code></pre> </body>
@@ -1602,7 +1610,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20createPlaylist(%24input%3A%20PlaylistInput!)%7B%0A%20%20createPlaylist(input%3A%20%24input)%7B%0A%20%20%20%20ok%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20createPlaylist(%24input%3A%20PlaylistInput!)%7B%0A%20%20createPlaylist(input%3A%20%24input)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -1644,7 +1652,8 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;createPlaylist&quot;</span>: {
-      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
 }
@@ -1710,6 +1719,7 @@ http://127.0.0.1:8000/graphql/
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> createTopic<span class="hljs-tag">(<span class="hljs-code">$input</span>:<span class="hljs-type"> TopicInput!</span>)</span><span class="hljs-tag">{
   <span class="hljs-symbol">createTopic<span class="hljs-tag">(input: <span class="hljs-code">$input</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
+    <span class="hljs-symbol">user</span>
   }</span></span>
 }</span></span>
 </code></pre> </body>
@@ -1734,7 +1744,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20createTopic(%24input%3A%20TopicInput!)%7B%0A%20%20createTopic(input%3A%20%24input)%7B%0A%20%20%20%20ok%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20createTopic(%24input%3A%20TopicInput!)%7B%0A%20%20createTopic(input%3A%20%24input)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -1776,7 +1786,8 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;createTopic&quot;</span>: {
-      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
 }
@@ -1842,6 +1853,7 @@ http://127.0.0.1:8000/graphql/
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> createLanguage<span class="hljs-tag">(<span class="hljs-code">$input</span>:<span class="hljs-type"> LanguageInput!</span>)</span><span class="hljs-tag">{
   <span class="hljs-symbol">createLanguage<span class="hljs-tag">(input: <span class="hljs-code">$input</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
+    <span class="hljs-symbol">user</span>
   }</span></span>
 }</span></span>
 </code></pre> </body>
@@ -1861,7 +1873,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20createLanguage(%24input%3A%20LanguageInput!)%7B%0A%20%20createLanguage(input%3A%20%24input)%7B%0A%20%20%20%20ok%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20createLanguage(%24input%3A%20LanguageInput!)%7B%0A%20%20createLanguage(input%3A%20%24input)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -1903,7 +1915,8 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;createLanguage&quot;</span>: {
-      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
 }
@@ -2049,6 +2062,7 @@ http://127.0.0.1:8000/graphql/
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> updateTrack<span class="hljs-tag">(<span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$audioUrl</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$duration</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$id</span>: ID!, <span class="hljs-code">$index</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$transcript</span>:<span class="hljs-type"> String)</span>{
   updateTrack(active: <span class="hljs-code">$active</span>, audioUrl: <span class="hljs-code">$audioUrl</span>, duration: <span class="hljs-code">$duration</span>, id: <span class="hljs-code">$id</span>, index: <span class="hljs-code">$index</span>, published: <span class="hljs-code">$published</span>, transcript: <span class="hljs-code">$transcript</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
+    <span class="hljs-symbol">user</span>
   }</span></span>
 }
 </code></pre> </body>
@@ -2070,7 +2084,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updateTrack(%24active%3A%20Boolean%2C%20%24audioUrl%3A%20String%2C%20%24duration%3A%20String%2C%20%24id%3A%20ID!%2C%20%24index%3A%20Int%2C%20%24published%3A%20Boolean%2C%20%24transcript%3A%20String)%7B%0A%20%20updateTrack(active%3A%20%24active%2C%20audioUrl%3A%20%24audioUrl%2C%20duration%3A%20%24duration%2C%20id%3A%20%24id%2C%20index%3A%20%24index%2C%20published%3A%20%24published%2C%20transcript%3A%20%24transcript)%7B%0A%20%20%20%20ok%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updateTrack(%24active%3A%20Boolean%2C%20%24audioUrl%3A%20String%2C%20%24duration%3A%20String%2C%20%24id%3A%20ID!%2C%20%24index%3A%20Int%2C%20%24published%3A%20Boolean%2C%20%24transcript%3A%20String)%7B%0A%20%20updateTrack(active%3A%20%24active%2C%20audioUrl%3A%20%24audioUrl%2C%20duration%3A%20%24duration%2C%20id%3A%20%24id%2C%20index%3A%20%24index%2C%20published%3A%20%24published%2C%20transcript%3A%20%24transcript)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -2112,7 +2126,8 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;updateTrack&quot;</span>: {
-      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
 }
@@ -2252,6 +2267,7 @@ http://127.0.0.1:8000/graphql/
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> updatePlaylist<span class="hljs-tag">(<span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$audioUrl</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$id</span>: ID!, <span class="hljs-code">$index</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$title</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$tracks</span>: [ID])</span><span class="hljs-tag">{
   <span class="hljs-symbol">updatePlaylist<span class="hljs-tag">(active: <span class="hljs-code">$active</span>, audioUrl: <span class="hljs-code">$audioUrl</span>, id: <span class="hljs-code">$id</span>, index: <span class="hljs-code">$index</span>, published: <span class="hljs-code">$published</span>, title: <span class="hljs-code">$title</span>, tracks: <span class="hljs-code">$tracks</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
+    <span class="hljs-symbol">user</span>
   }</span></span>
 }</span></span>
 </code></pre> </body>
@@ -2275,7 +2291,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updatePlaylist(%24active%3A%20Boolean%2C%20%24audioUrl%3A%20String%2C%20%24id%3A%20ID!%2C%20%24index%3A%20Int%2C%20%24published%3A%20Boolean%2C%20%24title%3A%20String%2C%20%24tracks%3A%20%5BID%5D)%7B%0A%20%20updatePlaylist(active%3A%20%24active%2C%20audioUrl%3A%20%24audioUrl%2C%20id%3A%20%24id%2C%20index%3A%20%24index%2C%20published%3A%20%24published%2C%20title%3A%20%24title%2C%20tracks%3A%20%24tracks)%7B%0A%20%20%20%20ok%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updatePlaylist(%24active%3A%20Boolean%2C%20%24audioUrl%3A%20String%2C%20%24id%3A%20ID!%2C%20%24index%3A%20Int%2C%20%24published%3A%20Boolean%2C%20%24title%3A%20String%2C%20%24tracks%3A%20%5BID%5D)%7B%0A%20%20updatePlaylist(active%3A%20%24active%2C%20audioUrl%3A%20%24audioUrl%2C%20id%3A%20%24id%2C%20index%3A%20%24index%2C%20published%3A%20%24published%2C%20title%3A%20%24title%2C%20tracks%3A%20%24tracks)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -2317,7 +2333,8 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;updatePlaylist&quot;</span>: {
-      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
 }
@@ -2457,6 +2474,7 @@ http://127.0.0.1:8000/graphql/
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> updateTopic<span class="hljs-tag">(<span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$audioUrl</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$id</span>: ID!, <span class="hljs-code">$index</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$playlists</span>: [ID], <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$title</span>:<span class="hljs-type"> String)</span>{
   updateTopic(active: <span class="hljs-code">$active</span>, audioUrl: <span class="hljs-code">$audioUrl</span>, id: <span class="hljs-code">$id</span>, index: <span class="hljs-code">$index</span>, playlists: <span class="hljs-code">$playlists</span>, published: <span class="hljs-code">$published</span>, title: <span class="hljs-code">$title</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
+    <span class="hljs-symbol">user</span>
   }</span></span>
 }
 </code></pre> </body>
@@ -2480,7 +2498,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updateTopic(%24active%3A%20Boolean%2C%20%24audioUrl%3A%20String%2C%20%24id%3A%20ID!%2C%20%24index%3A%20Int%2C%20%24playlists%3A%20%5BID%5D%2C%20%24published%3A%20Boolean%2C%20%24title%3A%20String)%7B%0A%20%20updateTopic(active%3A%20%24active%2C%20audioUrl%3A%20%24audioUrl%2C%20id%3A%20%24id%2C%20index%3A%20%24index%2C%20playlists%3A%20%24playlists%2C%20published%3A%20%24published%2C%20title%3A%20%24title)%7B%0A%20%20%20%20ok%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updateTopic(%24active%3A%20Boolean%2C%20%24audioUrl%3A%20String%2C%20%24id%3A%20ID!%2C%20%24index%3A%20Int%2C%20%24playlists%3A%20%5BID%5D%2C%20%24published%3A%20Boolean%2C%20%24title%3A%20String)%7B%0A%20%20updateTopic(active%3A%20%24active%2C%20audioUrl%3A%20%24audioUrl%2C%20id%3A%20%24id%2C%20index%3A%20%24index%2C%20playlists%3A%20%24playlists%2C%20published%3A%20%24published%2C%20title%3A%20%24title)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -2522,7 +2540,8 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;updateTopic&quot;</span>: {
-      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
 }
@@ -2623,6 +2642,7 @@ http://127.0.0.1:8000/graphql/
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> updateLanguage<span class="hljs-tag">(<span class="hljs-code">$audioUrl</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$id</span>: ID!, <span class="hljs-code">$name</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean)</span>{
   updateLanguage(audioUrl: <span class="hljs-code">$audioUrl</span>, id: <span class="hljs-code">$id</span>, name: <span class="hljs-code">$name</span>, published: <span class="hljs-code">$published</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
+    <span class="hljs-symbol">user</span>
   }</span></span>
 }
 </code></pre> </body>
@@ -2641,7 +2661,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updateLanguage(%24audioUrl%3A%20String%2C%20%24id%3A%20ID!%2C%20%24name%3A%20String%2C%20%24published%3A%20Boolean)%7B%0A%20%20updateLanguage(audioUrl%3A%20%24audioUrl%2C%20id%3A%20%24id%2C%20name%3A%20%24name%2C%20published%3A%20%24published)%7B%0A%20%20%20%20ok%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updateLanguage(%24audioUrl%3A%20String%2C%20%24id%3A%20ID!%2C%20%24name%3A%20String%2C%20%24published%3A%20Boolean)%7B%0A%20%20updateLanguage(audioUrl%3A%20%24audioUrl%2C%20id%3A%20%24id%2C%20name%3A%20%24name%2C%20published%3A%20%24published)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -2683,7 +2703,8 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;updateLanguage&quot;</span>: {
-      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
 }
@@ -2751,6 +2772,7 @@ http://127.0.0.1:8000/graphql/
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> deleteTrack<span class="hljs-tag">(<span class="hljs-code">$id</span>: ID!)</span><span class="hljs-tag">{
   <span class="hljs-symbol">deleteTrack<span class="hljs-tag">(id: <span class="hljs-code">$id</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
+    <span class="hljs-symbol">user</span>
   }</span></span>
 }</span></span>
 </code></pre> </body>
@@ -2766,7 +2788,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20deleteTrack(%24id%3A%20ID!)%7B%0A%20%20deleteTrack(id%3A%20%24id)%7B%0A%20%20%20%20ok%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20deleteTrack(%24id%3A%20ID!)%7B%0A%20%20deleteTrack(id%3A%20%24id)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -2808,7 +2830,8 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;deleteTrack&quot;</span>: {
-      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
 }
@@ -2870,6 +2893,7 @@ http://127.0.0.1:8000/graphql/
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> deletePlaylist<span class="hljs-tag">(<span class="hljs-code">$id</span>: ID)</span><span class="hljs-tag">{
   <span class="hljs-symbol">deletePlaylist<span class="hljs-tag">(id: <span class="hljs-code">$id</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
+    <span class="hljs-symbol">user</span>
   }</span></span>
 }</span></span>
 </code></pre> </body>
@@ -2885,7 +2909,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20deletePlaylist(%24id%3A%20ID)%7B%0A%20%20deletePlaylist(id%3A%20%24id)%7B%0A%20%20%20%20ok%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20deletePlaylist(%24id%3A%20ID)%7B%0A%20%20deletePlaylist(id%3A%20%24id)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -2927,7 +2951,8 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;deletePlaylist&quot;</span>: {
-      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
 }
@@ -2989,6 +3014,7 @@ http://127.0.0.1:8000/graphql/
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> deleteTopic<span class="hljs-tag">(<span class="hljs-code">$id</span>: ID)</span><span class="hljs-tag">{
   <span class="hljs-symbol">deleteTopic<span class="hljs-tag">(id: <span class="hljs-code">$id</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
+    <span class="hljs-symbol">user</span>
   }</span></span>
 }</span></span>
 </code></pre> </body>
@@ -3004,7 +3030,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20deleteTopic(%24id%3A%20ID)%7B%0A%20%20deleteTopic(id%3A%20%24id)%7B%0A%20%20%20%20ok%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20deleteTopic(%24id%3A%20ID)%7B%0A%20%20deleteTopic(id%3A%20%24id)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -3046,7 +3072,8 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;deleteTopic&quot;</span>: {
-      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
 }
@@ -3108,6 +3135,7 @@ http://127.0.0.1:8000/graphql/
                     <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> deleteLanguage<span class="hljs-tag">(<span class="hljs-code">$id</span>: ID!)</span><span class="hljs-tag">{
   <span class="hljs-symbol">deleteLanguage<span class="hljs-tag">(id: <span class="hljs-code">$id</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
+    <span class="hljs-symbol">user</span>
   }</span></span>
 }</span></span>
 </code></pre> </body>
@@ -3123,7 +3151,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20deleteLanguage(%24id%3A%20ID!)%7B%0A%20%20deleteLanguage(id%3A%20%24id)%7B%0A%20%20%20%20ok%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20deleteLanguage(%24id%3A%20ID!)%7B%0A%20%20deleteLanguage(id%3A%20%24id)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -3165,7 +3193,8 @@ http://127.0.0.1:8000/graphql/
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;data&quot;</span>: {
     <span class="hljs-attr">&quot;deleteLanguage&quot;</span>: {
-      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
     }
   }
 }
@@ -3219,7 +3248,7 @@ http://127.0.0.1:8000/graphql/
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="ok">
+                    <dt data-property-name="ok" class="has-description">
                       <span class="json-property-name">ok:</span>
                       <div class="json-property-type">
                         <div class="json-schema-ref-boolean">
@@ -3228,6 +3257,21 @@ http://127.0.0.1:8000/graphql/
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p>Success status</p>
+                    </dd>
+                    <dt data-property-name="user" class="has-description">
+                      <span class="json-property-name">user:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Username of the authenticated user</p>
+                    </dd>
                     <dt data-property-name="language">
                       <span class="json-property-name">language:</span>
                       <div class="json-property-type">
@@ -3248,6 +3292,7 @@ http://127.0.0.1:8000/graphql/
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;language&quot;</span>: {
     <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
     <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -3275,7 +3320,7 @@ http://127.0.0.1:8000/graphql/
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="ok">
+                    <dt data-property-name="ok" class="has-description">
                       <span class="json-property-name">ok:</span>
                       <div class="json-property-type">
                         <div class="json-schema-ref-boolean">
@@ -3284,6 +3329,21 @@ http://127.0.0.1:8000/graphql/
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p>Success status</p>
+                    </dd>
+                    <dt data-property-name="user" class="has-description">
+                      <span class="json-property-name">user:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Username of the authenticated user</p>
+                    </dd>
                     <dt data-property-name="playlist">
                       <span class="json-property-name">playlist:</span>
                       <div class="json-property-type">
@@ -3304,6 +3364,7 @@ http://127.0.0.1:8000/graphql/
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;playlist&quot;</span>: {
     <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
     <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -3347,7 +3408,7 @@ http://127.0.0.1:8000/graphql/
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="ok">
+                    <dt data-property-name="ok" class="has-description">
                       <span class="json-property-name">ok:</span>
                       <div class="json-property-type">
                         <div class="json-schema-ref-boolean">
@@ -3356,6 +3417,21 @@ http://127.0.0.1:8000/graphql/
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p>Success status</p>
+                    </dd>
+                    <dt data-property-name="user" class="has-description">
+                      <span class="json-property-name">user:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Username of the authenticated user</p>
+                    </dd>
                     <dt data-property-name="topic">
                       <span class="json-property-name">topic:</span>
                       <div class="json-property-type">
@@ -3376,6 +3452,7 @@ http://127.0.0.1:8000/graphql/
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;topic&quot;</span>: {
     <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
     <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -3429,7 +3506,7 @@ http://127.0.0.1:8000/graphql/
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="ok">
+                    <dt data-property-name="ok" class="has-description">
                       <span class="json-property-name">ok:</span>
                       <div class="json-property-type">
                         <div class="json-schema-ref-boolean">
@@ -3438,15 +3515,21 @@ http://127.0.0.1:8000/graphql/
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
-                    <dt data-property-name="track">
-                      <span class="json-property-name">track:</span>
+                    <dd>
+                      <p>Success status</p>
+                    </dd>
+                    <dt data-property-name="user" class="has-description">
+                      <span class="json-property-name">user:</span>
                       <div class="json-property-type">
-                        <div class="">
-                          <a class="json-schema-ref" href="#/definitions/TrackType">TrackType</a>
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
                         </div>
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p>Username of the authenticated user</p>
+                    </dd>
                   </dl>
                 </section>
               </div>
@@ -3458,18 +3541,7 @@ http://127.0.0.1:8000/graphql/
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-  <span class="hljs-attr">&quot;track&quot;</span>: {
-    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
-    <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;index&quot;</span>: <span class="hljs-string">&quot;number&quot;</span>,
-    <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;transcript&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-    <span class="hljs-attr">&quot;duration&quot;</span>: <span class="hljs-string">&quot;number&quot;</span>,
-    <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
-    <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
-    <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-    <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
-  }
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre> </body>
                   </html>
@@ -3574,7 +3646,7 @@ http://127.0.0.1:8000/graphql/
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="ok">
+                    <dt data-property-name="ok" class="has-description">
                       <span class="json-property-name">ok:</span>
                       <div class="json-property-type">
                         <div class="json-schema-ref-boolean">
@@ -3583,6 +3655,21 @@ http://127.0.0.1:8000/graphql/
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p>Success status</p>
+                    </dd>
+                    <dt data-property-name="user" class="has-description">
+                      <span class="json-property-name">user:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Username of the authenticated user</p>
+                    </dd>
                   </dl>
                 </section>
               </div>
@@ -3593,7 +3680,8 @@ http://127.0.0.1:8000/graphql/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+  <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre> </body>
                   </html>
@@ -3615,7 +3703,7 @@ http://127.0.0.1:8000/graphql/
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="ok">
+                    <dt data-property-name="ok" class="has-description">
                       <span class="json-property-name">ok:</span>
                       <div class="json-property-type">
                         <div class="json-schema-ref-boolean">
@@ -3624,6 +3712,21 @@ http://127.0.0.1:8000/graphql/
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p>Success status</p>
+                    </dd>
+                    <dt data-property-name="user" class="has-description">
+                      <span class="json-property-name">user:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Username of the authenticated user</p>
+                    </dd>
                   </dl>
                 </section>
               </div>
@@ -3634,7 +3737,8 @@ http://127.0.0.1:8000/graphql/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+  <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre> </body>
                   </html>
@@ -3656,7 +3760,7 @@ http://127.0.0.1:8000/graphql/
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="ok">
+                    <dt data-property-name="ok" class="has-description">
                       <span class="json-property-name">ok:</span>
                       <div class="json-property-type">
                         <div class="json-schema-ref-boolean">
@@ -3665,6 +3769,21 @@ http://127.0.0.1:8000/graphql/
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p>Success status</p>
+                    </dd>
+                    <dt data-property-name="user" class="has-description">
+                      <span class="json-property-name">user:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Username of the authenticated user</p>
+                    </dd>
                   </dl>
                 </section>
               </div>
@@ -3675,7 +3794,8 @@ http://127.0.0.1:8000/graphql/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+  <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre> </body>
                   </html>
@@ -3697,7 +3817,7 @@ http://127.0.0.1:8000/graphql/
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="ok">
+                    <dt data-property-name="ok" class="has-description">
                       <span class="json-property-name">ok:</span>
                       <div class="json-property-type">
                         <div class="json-schema-ref-boolean">
@@ -3706,6 +3826,21 @@ http://127.0.0.1:8000/graphql/
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p>Success status</p>
+                    </dd>
+                    <dt data-property-name="user" class="has-description">
+                      <span class="json-property-name">user:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Username of the authenticated user</p>
+                    </dd>
                   </dl>
                 </section>
               </div>
@@ -3716,7 +3851,8 @@ http://127.0.0.1:8000/graphql/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+  <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre> </body>
                   </html>
@@ -3983,6 +4119,26 @@ http://127.0.0.1:8000/graphql/
                 </section>
                 <section class="json-schema-properties">
                   <dl>
+                    <dt data-property-name="payload">
+                      <span class="json-property-name">payload:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/GenericScalar">GenericScalar</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt data-property-name="refreshExpiresIn">
+                      <span class="json-property-name">refreshExpiresIn:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-number">
+                          <a class="json-schema-ref" href="#/definitions/Int">Int</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
                     <dt data-property-name="token">
                       <span class="json-property-name">token:</span>
                       <div class="json-property-type">
@@ -3991,6 +4147,7 @@ http://127.0.0.1:8000/graphql/
                         </div>
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
                     </dt>
                   </dl>
                 </section>
@@ -4002,6 +4159,8 @@ http://127.0.0.1:8000/graphql/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;payload&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+  <span class="hljs-attr">&quot;refreshExpiresIn&quot;</span>: <span class="hljs-string">&quot;number&quot;</span>,
   <span class="hljs-attr">&quot;token&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre> </body>
@@ -4273,15 +4432,6 @@ http://127.0.0.1:8000/graphql/
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="token">
-                      <span class="json-property-name">token:</span>
-                      <div class="json-property-type">
-                        <div class="json-schema-ref-string">
-                          <a class="json-schema-ref" href="#/definitions/String">String</a>
-                        </div>
-                      </div>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
                     <dt data-property-name="payload">
                       <span class="json-property-name">payload:</span>
                       <div class="json-property-type">
@@ -4290,6 +4440,27 @@ http://127.0.0.1:8000/graphql/
                         </div>
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt data-property-name="refreshExpiresIn">
+                      <span class="json-property-name">refreshExpiresIn:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-number">
+                          <a class="json-schema-ref" href="#/definitions/Int">Int</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt data-property-name="token">
+                      <span class="json-property-name">token:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
                     </dt>
                   </dl>
                 </section>
@@ -4301,8 +4472,9 @@ http://127.0.0.1:8000/graphql/
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">&quot;token&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;payload&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>
+  <span class="hljs-attr">&quot;payload&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+  <span class="hljs-attr">&quot;refreshExpiresIn&quot;</span>: <span class="hljs-string">&quot;number&quot;</span>,
+  <span class="hljs-attr">&quot;token&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre> </body>
                   </html>
@@ -4890,7 +5062,7 @@ http://127.0.0.1:8000/graphql/
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="ok">
+                    <dt data-property-name="ok" class="has-description">
                       <span class="json-property-name">ok:</span>
                       <div class="json-property-type">
                         <div class="json-schema-ref-boolean">
@@ -4899,6 +5071,21 @@ http://127.0.0.1:8000/graphql/
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p>Success status</p>
+                    </dd>
+                    <dt data-property-name="user" class="has-description">
+                      <span class="json-property-name">user:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Username of the authenticated user</p>
+                    </dd>
                     <dt data-property-name="language">
                       <span class="json-property-name">language:</span>
                       <div class="json-property-type">
@@ -4919,6 +5106,7 @@ http://127.0.0.1:8000/graphql/
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;language&quot;</span>: {
     <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
     <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -4946,7 +5134,7 @@ http://127.0.0.1:8000/graphql/
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="ok">
+                    <dt data-property-name="ok" class="has-description">
                       <span class="json-property-name">ok:</span>
                       <div class="json-property-type">
                         <div class="json-schema-ref-boolean">
@@ -4955,6 +5143,21 @@ http://127.0.0.1:8000/graphql/
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p>Success status</p>
+                    </dd>
+                    <dt data-property-name="user" class="has-description">
+                      <span class="json-property-name">user:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Username of the authenticated user</p>
+                    </dd>
                     <dt data-property-name="playlist">
                       <span class="json-property-name">playlist:</span>
                       <div class="json-property-type">
@@ -4975,6 +5178,7 @@ http://127.0.0.1:8000/graphql/
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;playlist&quot;</span>: {
     <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
     <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -5018,7 +5222,7 @@ http://127.0.0.1:8000/graphql/
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="ok">
+                    <dt data-property-name="ok" class="has-description">
                       <span class="json-property-name">ok:</span>
                       <div class="json-property-type">
                         <div class="json-schema-ref-boolean">
@@ -5027,6 +5231,21 @@ http://127.0.0.1:8000/graphql/
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p>Success status</p>
+                    </dd>
+                    <dt data-property-name="user" class="has-description">
+                      <span class="json-property-name">user:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Username of the authenticated user</p>
+                    </dd>
                     <dt data-property-name="topic">
                       <span class="json-property-name">topic:</span>
                       <div class="json-property-type">
@@ -5047,6 +5266,7 @@ http://127.0.0.1:8000/graphql/
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;topic&quot;</span>: {
     <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
     <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
@@ -5118,6 +5338,18 @@ http://127.0.0.1:8000/graphql/
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dt data-property-name="user" class="has-description">
+                      <span class="json-property-name">user:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Username of the authenticated user</p>
+                    </dd>
                   </dl>
                 </section>
               </div>
@@ -5140,7 +5372,8 @@ http://127.0.0.1:8000/graphql/
     <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
     <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
     <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
-  }
+  },
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre> </body>
                   </html>
@@ -5333,6 +5566,7 @@ http://127.0.0.1:8000/graphql/
                         </div>
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
                     </dt>
                   </dl>
                 </section>
