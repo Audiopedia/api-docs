@@ -46,6 +46,19 @@ domains:
 
         You are not required to list all of the fields you see in the query (id, title, etc...). You can select and choose which fields you want from the query.
     usecases:
+     - name: getTrack
+       description: Get a list of tracks that has the same values specified in the query argument.
+       query: query.getTrack 
+     - name: getPlaylist
+       description: Get a list of playlists that has the same values specified in the query argument.
+       query: query.getPlaylist
+     - name: getTopic
+       description: Get a list of topics that has the same values specified in the query argument.
+       query: query.getTopic
+     - name: getLanguage
+       description: Get a list of languages that has the same values specified in the query argument.
+       query: query.getLanguage
+
      - name: allUsers
        description: Get a list of all users.
        query: query.allUsers

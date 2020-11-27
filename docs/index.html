@@ -41,6 +41,18 @@
             <a href="#tag-Fetching-Data">Fetching Data</a>
             <ul>
               <li>
+                <a href="#operation-gettrack-post"> getTrack </a>
+              </li>
+              <li>
+                <a href="#operation-getplaylist-post"> getPlaylist </a>
+              </li>
+              <li>
+                <a href="#operation-gettopic-post"> getTopic </a>
+              </li>
+              <li>
+                <a href="#operation-getlanguage-post"> getLanguage </a>
+              </li>
+              <li>
                 <a href="#operation-allusers-post"> allUsers </a>
               </li>
               <li>
@@ -680,6 +692,730 @@ http://127.0.0.1:8000/graphql/
             <div class="doc-copy">
               <p>Base methods to fetch specific pieces of data. </p>
               <p>You are not required to list all of the fields you see in the query (id, title, etc...). You can select and choose which fields you want from the query.</p>
+            </div>
+          </div>
+          <div id="operation-gettrack-post" class="operation panel" data-traverse-target="operation-gettrack-post">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Fetching-Data">Fetching Data</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">getTrack</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>Get a list of tracks that has the same values specified in the query argument.</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-request-params">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">id:
+                        <span class="prop-type">
+                          <div class="json-property-type">integer</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>ID of the track object</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">index:
+                        <span class="prop-type">
+                          <div class="json-property-type">integer</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Position of the track within a playlist</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">active:
+                        <span class="prop-type">
+                          <div class="json-property-type">boolean</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>The active status of the object</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">published:
+                        <span class="prop-type">
+                          <div class="json-property-type">boolean</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>The published status of the object</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">language:
+                        <span class="prop-type">
+                          <div class="json-property-type">string</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>The language of the track</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h3>
+                    <h5>Request Content-Types:
+                      <span>application/json</span>
+                    </h5>
+                    <h5>Query</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> getTrack<span class="hljs-tag">(<span class="hljs-code">$id</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$index</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$language</span>: ID)</span><span class="hljs-tag">{
+  <span class="hljs-symbol">getTrack<span class="hljs-tag">(id: <span class="hljs-code">$id</span>, index: <span class="hljs-code">$index</span>, active: <span class="hljs-code">$active</span>, published: <span class="hljs-code">$published</span>, language: <span class="hljs-code">$language</span>)</span><span class="hljs-tag">{
+    <span class="hljs-symbol">id</span>
+    <span class="hljs-symbol">title</span>
+    <span class="hljs-symbol">index</span>
+    <span class="hljs-symbol">audioUrl</span>
+    <span class="hljs-symbol">transcript</span>
+    <span class="hljs-symbol">duration</span>
+    <span class="hljs-symbol">createdAt</span>
+    <span class="hljs-symbol">updatedAt</span>
+    <span class="hljs-symbol">active</span>
+    <span class="hljs-symbol">published</span>
+  }</span></span>
+}</span></span>
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <h5>Variables</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+  <span class="hljs-attr">&quot;index&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+  <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;language&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <a href="http://127.0.0.1:8000/graphql/?query=query%20getTrack(%24id%3A%20Int%2C%20%24index%3A%20Int%2C%20%24active%3A%20Boolean%2C%20%24published%3A%20Boolean%2C%20%24language%3A%20ID)%7B%0A%20%20getTrack(id%3A%20%24id%2C%20index%3A%20%24index%2C%20active%3A%20%24active%2C%20published%3A%20%24published%2C%20language%3A%20%24language)%7B%0A%20%20%20%20id%0A%20%20%20%20title%0A%20%20%20%20index%0A%20%20%20%20audioUrl%0A%20%20%20%20transcript%0A%20%20%20%20duration%0A%20%20%20%20createdAt%0A%20%20%20%20updatedAt%0A%20%20%20%20active%0A%20%20%20%20published%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                      <a/> </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-inner">
+                    <div class="prop-name">type</div>
+                    <div class="prop-value">
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/TrackType">TrackType</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;data&quot;</span>: {
+    <span class="hljs-attr">&quot;getTrack&quot;</span>: [
+      {
+        <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;index&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+        <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;transcript&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;duration&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+        <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+        <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      }
+    ]
+  }
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation-getplaylist-post" class="operation panel" data-traverse-target="operation-getplaylist-post">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Fetching-Data">Fetching Data</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">getPlaylist</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>Get a list of playlists that has the same values specified in the query argument.</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-request-params">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">id:
+                        <span class="prop-type">
+                          <div class="json-property-type">integer</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>ID of the playlist object</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">index:
+                        <span class="prop-type">
+                          <div class="json-property-type">integer</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Position of the playlist within a topic</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">active:
+                        <span class="prop-type">
+                          <div class="json-property-type">boolean</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>The active status of the object</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">published:
+                        <span class="prop-type">
+                          <div class="json-property-type">boolean</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>The published status of the object</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">language:
+                        <span class="prop-type">
+                          <div class="json-property-type">string</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>The language of the playlist</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h3>
+                    <h5>Request Content-Types:
+                      <span>application/json</span>
+                    </h5>
+                    <h5>Query</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> getPlaylist<span class="hljs-tag">(<span class="hljs-code">$id</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$index</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$language</span>: ID)</span><span class="hljs-tag">{
+  <span class="hljs-symbol">getPlaylist<span class="hljs-tag">(id: <span class="hljs-code">$id</span>, index: <span class="hljs-code">$index</span>, active: <span class="hljs-code">$active</span>, published: <span class="hljs-code">$published</span>, language: <span class="hljs-code">$language</span>)</span><span class="hljs-tag">{
+    <span class="hljs-symbol">id</span>
+    <span class="hljs-symbol">title</span>
+    <span class="hljs-symbol">index</span>
+    <span class="hljs-symbol">audioUrl</span>
+    <span class="hljs-symbol">active</span>
+    <span class="hljs-symbol">published</span>
+    <span class="hljs-symbol">tracks</span>
+  }</span></span>
+}</span></span>
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <h5>Variables</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+  <span class="hljs-attr">&quot;index&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+  <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;language&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <a href="http://127.0.0.1:8000/graphql/?query=query%20getPlaylist(%24id%3A%20Int%2C%20%24index%3A%20Int%2C%20%24active%3A%20Boolean%2C%20%24published%3A%20Boolean%2C%20%24language%3A%20ID)%7B%0A%20%20getPlaylist(id%3A%20%24id%2C%20index%3A%20%24index%2C%20active%3A%20%24active%2C%20published%3A%20%24published%2C%20language%3A%20%24language)%7B%0A%20%20%20%20id%0A%20%20%20%20title%0A%20%20%20%20index%0A%20%20%20%20audioUrl%0A%20%20%20%20active%0A%20%20%20%20published%0A%20%20%20%20tracks%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                      <a/> </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-inner">
+                    <div class="prop-name">type</div>
+                    <div class="prop-value">
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/PlaylistType">PlaylistType</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;data&quot;</span>: {
+    <span class="hljs-attr">&quot;getPlaylist&quot;</span>: [
+      {
+        <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;index&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+        <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+        <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      }
+    ]
+  }
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation-gettopic-post" class="operation panel" data-traverse-target="operation-gettopic-post">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Fetching-Data">Fetching Data</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">getTopic</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>Get a list of topics that has the same values specified in the query argument.</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-request-params">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">id:
+                        <span class="prop-type">
+                          <div class="json-property-type">integer</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>ID of the topic object</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">index:
+                        <span class="prop-type">
+                          <div class="json-property-type">integer</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Position of the topic in the interface</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">active:
+                        <span class="prop-type">
+                          <div class="json-property-type">boolean</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>The active status of the object</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">published:
+                        <span class="prop-type">
+                          <div class="json-property-type">boolean</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>The published status of the object</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">language:
+                        <span class="prop-type">
+                          <div class="json-property-type">string</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>The language of the topic</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h3>
+                    <h5>Request Content-Types:
+                      <span>application/json</span>
+                    </h5>
+                    <h5>Query</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> getTopic<span class="hljs-tag">(<span class="hljs-code">$id</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$index</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$language</span>: ID)</span><span class="hljs-tag">{
+  <span class="hljs-symbol">getTopic<span class="hljs-tag">(id: <span class="hljs-code">$id</span>, index: <span class="hljs-code">$index</span>, active: <span class="hljs-code">$active</span>, published: <span class="hljs-code">$published</span>, language: <span class="hljs-code">$language</span>)</span><span class="hljs-tag">{
+    <span class="hljs-symbol">id</span>
+    <span class="hljs-symbol">title</span>
+    <span class="hljs-symbol">index</span>
+    <span class="hljs-symbol">audioUrl</span>
+    <span class="hljs-symbol">active</span>
+    <span class="hljs-symbol">published</span>
+    <span class="hljs-symbol">playlists</span>
+  }</span></span>
+}</span></span>
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <h5>Variables</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+  <span class="hljs-attr">&quot;index&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+  <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;language&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+}
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <a href="http://127.0.0.1:8000/graphql/?query=query%20getTopic(%24id%3A%20Int%2C%20%24index%3A%20Int%2C%20%24active%3A%20Boolean%2C%20%24published%3A%20Boolean%2C%20%24language%3A%20ID)%7B%0A%20%20getTopic(id%3A%20%24id%2C%20index%3A%20%24index%2C%20active%3A%20%24active%2C%20published%3A%20%24published%2C%20language%3A%20%24language)%7B%0A%20%20%20%20id%0A%20%20%20%20title%0A%20%20%20%20index%0A%20%20%20%20audioUrl%0A%20%20%20%20active%0A%20%20%20%20published%0A%20%20%20%20playlists%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                      <a/> </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-inner">
+                    <div class="prop-name">type</div>
+                    <div class="prop-value">
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/TopicType">TopicType</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;data&quot;</span>: {
+    <span class="hljs-attr">&quot;getTopic&quot;</span>: [
+      {
+        <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;index&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+        <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+        <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      }
+    ]
+  }
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation-getlanguage-post" class="operation panel" data-traverse-target="operation-getlanguage-post">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Fetching-Data">Fetching Data</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">getLanguage</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>Get a list of languages that has the same values specified in the query argument.</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-request-params">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">id:
+                        <span class="prop-type">
+                          <div class="json-property-type">integer</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>ID of the language object</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">active:
+                        <span class="prop-type">
+                          <div class="json-property-type">boolean</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>The active status of the object</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">published:
+                        <span class="prop-type">
+                          <div class="json-property-type">boolean</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>The published status of the object</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h3>
+                    <h5>Request Content-Types:
+                      <span>application/json</span>
+                    </h5>
+                    <h5>Query</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> getLanguage<span class="hljs-tag">(<span class="hljs-code">$id</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean)</span>{
+  getLanguage(id: <span class="hljs-code">$id</span>, active: <span class="hljs-code">$active</span>, published: <span class="hljs-code">$published</span>)</span><span class="hljs-tag">{
+    <span class="hljs-symbol">id</span>
+    <span class="hljs-symbol">name</span>
+    <span class="hljs-symbol">audioUrl</span>
+    <span class="hljs-symbol">published</span>
+  }</span></span>
+}
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <h5>Variables</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+  <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+}
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <a href="http://127.0.0.1:8000/graphql/?query=query%20getLanguage(%24id%3A%20Int%2C%20%24active%3A%20Boolean%2C%20%24published%3A%20Boolean)%7B%0A%20%20getLanguage(id%3A%20%24id%2C%20active%3A%20%24active%2C%20published%3A%20%24published)%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20audioUrl%0A%20%20%20%20published%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                      <a/> </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-inner">
+                    <div class="prop-name">type</div>
+                    <div class="prop-value">
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/LanguageType">LanguageType</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">&quot;data&quot;</span>: {
+    <span class="hljs-attr">&quot;getLanguage&quot;</span>: [
+      {
+        <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      }
+    ]
+  }
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
             </div>
           </div>
           <div id="operation-allusers-post" class="operation panel" data-traverse-target="operation-allusers-post">
@@ -1470,7 +2206,9 @@ http://127.0.0.1:8000/graphql/
     <span class="hljs-attr">&quot;transcript&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;duration&quot;</span>: <span class="hljs-string">&quot;number&quot;</span>,
     <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-    <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+    <span class="hljs-attr">&quot;language&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+    <span class="hljs-attr">&quot;playlist&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>
   }
 }
 </code></pre> </body>
@@ -1602,9 +2340,8 @@ http://127.0.0.1:8000/graphql/
     <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
     <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
     <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-    <span class="hljs-attr">&quot;tracks&quot;</span>: [
-      <span class="hljs-string">&quot;object&quot;</span>
-    ]
+    <span class="hljs-attr">&quot;language&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+    <span class="hljs-attr">&quot;topic&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>
   }
 }
 </code></pre> </body>
@@ -1738,7 +2475,8 @@ http://127.0.0.1:8000/graphql/
     <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
     <span class="hljs-attr">&quot;playlists&quot;</span>: [
       <span class="hljs-string">&quot;object&quot;</span>
-    ]
+    ],
+    <span class="hljs-attr">&quot;language&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>
   }
 }
 </code></pre> </body>
@@ -2023,6 +2761,19 @@ http://127.0.0.1:8000/graphql/
                   </div>
                   <div class="prop-row prop-group">
                     <div class="prop-name">
+                      <div class="prop-title">playlist:
+                        <span class="prop-type">
+                          <div class="json-property-type">string</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>ID of playlist that this track belongs</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
                       <div class="prop-title">published:
                         <span class="prop-type">
                           <div class="json-property-type">boolean</div>
@@ -2059,8 +2810,8 @@ http://127.0.0.1:8000/graphql/
                     <!-- <div class="hljs"> -->
                     <html>
                     <head></head>
-                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> updateTrack<span class="hljs-tag">(<span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$audioUrl</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$duration</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$id</span>: ID!, <span class="hljs-code">$index</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$transcript</span>:<span class="hljs-type"> String)</span>{
-  updateTrack(active: <span class="hljs-code">$active</span>, audioUrl: <span class="hljs-code">$audioUrl</span>, duration: <span class="hljs-code">$duration</span>, id: <span class="hljs-code">$id</span>, index: <span class="hljs-code">$index</span>, published: <span class="hljs-code">$published</span>, transcript: <span class="hljs-code">$transcript</span>)</span><span class="hljs-tag">{
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> updateTrack<span class="hljs-tag">(<span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$audioUrl</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$duration</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$id</span>: ID!, <span class="hljs-code">$index</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$playlist</span>: ID, <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$transcript</span>:<span class="hljs-type"> String)</span>{
+  updateTrack(active: <span class="hljs-code">$active</span>, audioUrl: <span class="hljs-code">$audioUrl</span>, duration: <span class="hljs-code">$duration</span>, id: <span class="hljs-code">$id</span>, index: <span class="hljs-code">$index</span>, playlist: <span class="hljs-code">$playlist</span>, published: <span class="hljs-code">$published</span>, transcript: <span class="hljs-code">$transcript</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
     <span class="hljs-symbol">user</span>
   }</span></span>
@@ -2078,13 +2829,14 @@ http://127.0.0.1:8000/graphql/
   <span class="hljs-attr">&quot;duration&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;index&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+  <span class="hljs-attr">&quot;playlist&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;transcript&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updateTrack(%24active%3A%20Boolean%2C%20%24audioUrl%3A%20String%2C%20%24duration%3A%20String%2C%20%24id%3A%20ID!%2C%20%24index%3A%20Int%2C%20%24published%3A%20Boolean%2C%20%24transcript%3A%20String)%7B%0A%20%20updateTrack(active%3A%20%24active%2C%20audioUrl%3A%20%24audioUrl%2C%20duration%3A%20%24duration%2C%20id%3A%20%24id%2C%20index%3A%20%24index%2C%20published%3A%20%24published%2C%20transcript%3A%20%24transcript)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updateTrack(%24active%3A%20Boolean%2C%20%24audioUrl%3A%20String%2C%20%24duration%3A%20String%2C%20%24id%3A%20ID!%2C%20%24index%3A%20Int%2C%20%24playlist%3A%20ID%2C%20%24published%3A%20Boolean%2C%20%24transcript%3A%20String)%7B%0A%20%20updateTrack(active%3A%20%24active%2C%20audioUrl%3A%20%24audioUrl%2C%20duration%3A%20%24duration%2C%20id%3A%20%24id%2C%20index%3A%20%24index%2C%20playlist%3A%20%24playlist%2C%20published%3A%20%24published%2C%20transcript%3A%20%24transcript)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -2215,6 +2967,19 @@ http://127.0.0.1:8000/graphql/
                   </div>
                   <div class="prop-row prop-group">
                     <div class="prop-name">
+                      <div class="prop-title">language:
+                        <span class="prop-type">
+                          <div class="json-property-type">string</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>ID of the language object</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
                       <div class="prop-title">published:
                         <span class="prop-type">
                           <div class="json-property-type">boolean</div>
@@ -2241,15 +3006,15 @@ http://127.0.0.1:8000/graphql/
                   </div>
                   <div class="prop-row prop-group">
                     <div class="prop-name">
-                      <div class="prop-title">tracks:
+                      <div class="prop-title">topic:
                         <span class="prop-type">
-                          <div class="json-property-type">string[]</div>
+                          <div class="json-property-type">string</div>
                           <span class="json-property-range" title="Value limits"></span>
                         </span>
                       </div>
                     </div>
                     <div class="prop-value">
-                      <p>New ordering of tracks</p>
+                      <p>ID of the new topic object that this playlist belongs to</p>
                     </div>
                   </div>
                 </section>
@@ -2264,8 +3029,8 @@ http://127.0.0.1:8000/graphql/
                     <!-- <div class="hljs"> -->
                     <html>
                     <head></head>
-                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> updatePlaylist<span class="hljs-tag">(<span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$audioUrl</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$id</span>: ID!, <span class="hljs-code">$index</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$title</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$tracks</span>: [ID])</span><span class="hljs-tag">{
-  <span class="hljs-symbol">updatePlaylist<span class="hljs-tag">(active: <span class="hljs-code">$active</span>, audioUrl: <span class="hljs-code">$audioUrl</span>, id: <span class="hljs-code">$id</span>, index: <span class="hljs-code">$index</span>, published: <span class="hljs-code">$published</span>, title: <span class="hljs-code">$title</span>, tracks: <span class="hljs-code">$tracks</span>)</span><span class="hljs-tag">{
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> updatePlaylist<span class="hljs-tag">(<span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$audioUrl</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$id</span>: ID!, <span class="hljs-code">$index</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$language</span>: ID, <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$title</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$topic</span>: ID)</span><span class="hljs-tag">{
+  <span class="hljs-symbol">updatePlaylist<span class="hljs-tag">(active: <span class="hljs-code">$active</span>, audioUrl: <span class="hljs-code">$audioUrl</span>, id: <span class="hljs-code">$id</span>, index: <span class="hljs-code">$index</span>, language: <span class="hljs-code">$language</span>, published: <span class="hljs-code">$published</span>, title: <span class="hljs-code">$title</span>, topic: <span class="hljs-code">$topic</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
     <span class="hljs-symbol">user</span>
   }</span></span>
@@ -2282,16 +3047,15 @@ http://127.0.0.1:8000/graphql/
   <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;index&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+  <span class="hljs-attr">&quot;language&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
-  <span class="hljs-attr">&quot;tracks&quot;</span>: [
-    <span class="hljs-string">&quot;string&quot;</span>
-  ]
+  <span class="hljs-attr">&quot;topic&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updatePlaylist(%24active%3A%20Boolean%2C%20%24audioUrl%3A%20String%2C%20%24id%3A%20ID!%2C%20%24index%3A%20Int%2C%20%24published%3A%20Boolean%2C%20%24title%3A%20String%2C%20%24tracks%3A%20%5BID%5D)%7B%0A%20%20updatePlaylist(active%3A%20%24active%2C%20audioUrl%3A%20%24audioUrl%2C%20id%3A%20%24id%2C%20index%3A%20%24index%2C%20published%3A%20%24published%2C%20title%3A%20%24title%2C%20tracks%3A%20%24tracks)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updatePlaylist(%24active%3A%20Boolean%2C%20%24audioUrl%3A%20String%2C%20%24id%3A%20ID!%2C%20%24index%3A%20Int%2C%20%24language%3A%20ID%2C%20%24published%3A%20Boolean%2C%20%24title%3A%20String%2C%20%24topic%3A%20ID)%7B%0A%20%20updatePlaylist(active%3A%20%24active%2C%20audioUrl%3A%20%24audioUrl%2C%20id%3A%20%24id%2C%20index%3A%20%24index%2C%20language%3A%20%24language%2C%20published%3A%20%24published%2C%20title%3A%20%24title%2C%20topic%3A%20%24topic)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -2422,6 +3186,19 @@ http://127.0.0.1:8000/graphql/
                   </div>
                   <div class="prop-row prop-group">
                     <div class="prop-name">
+                      <div class="prop-title">language:
+                        <span class="prop-type">
+                          <div class="json-property-type">string</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p>2 letter ISO code of the language</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
                       <div class="prop-title">playlists:
                         <span class="prop-type">
                           <div class="json-property-type">string[]</div>
@@ -2471,8 +3248,8 @@ http://127.0.0.1:8000/graphql/
                     <!-- <div class="hljs"> -->
                     <html>
                     <head></head>
-                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> updateTopic<span class="hljs-tag">(<span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$audioUrl</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$id</span>: ID!, <span class="hljs-code">$index</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$playlists</span>: [ID], <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$title</span>:<span class="hljs-type"> String)</span>{
-  updateTopic(active: <span class="hljs-code">$active</span>, audioUrl: <span class="hljs-code">$audioUrl</span>, id: <span class="hljs-code">$id</span>, index: <span class="hljs-code">$index</span>, playlists: <span class="hljs-code">$playlists</span>, published: <span class="hljs-code">$published</span>, title: <span class="hljs-code">$title</span>)</span><span class="hljs-tag">{
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> updateTopic<span class="hljs-tag">(<span class="hljs-code">$active</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$audioUrl</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$id</span>: ID!, <span class="hljs-code">$index</span>:<span class="hljs-type"> Int,</span> <span class="hljs-code">$language</span>:<span class="hljs-type"> String,</span> <span class="hljs-code">$playlists</span>: [ID], <span class="hljs-code">$published</span>:<span class="hljs-type"> Boolean,</span> <span class="hljs-code">$title</span>:<span class="hljs-type"> String)</span>{
+  updateTopic(active: <span class="hljs-code">$active</span>, audioUrl: <span class="hljs-code">$audioUrl</span>, id: <span class="hljs-code">$id</span>, index: <span class="hljs-code">$index</span>, language: <span class="hljs-code">$language</span>, playlists: <span class="hljs-code">$playlists</span>, published: <span class="hljs-code">$published</span>, title: <span class="hljs-code">$title</span>)</span><span class="hljs-tag">{
     <span class="hljs-symbol">ok</span>
     <span class="hljs-symbol">user</span>
   }</span></span>
@@ -2489,6 +3266,7 @@ http://127.0.0.1:8000/graphql/
   <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;index&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+  <span class="hljs-attr">&quot;language&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;playlists&quot;</span>: [
     <span class="hljs-string">&quot;string&quot;</span>
   ],
@@ -2498,7 +3276,7 @@ http://127.0.0.1:8000/graphql/
 </code></pre> </body>
                     </html>
                     <!-- </div> -->
-                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updateTopic(%24active%3A%20Boolean%2C%20%24audioUrl%3A%20String%2C%20%24id%3A%20ID!%2C%20%24index%3A%20Int%2C%20%24playlists%3A%20%5BID%5D%2C%20%24published%3A%20Boolean%2C%20%24title%3A%20String)%7B%0A%20%20updateTopic(active%3A%20%24active%2C%20audioUrl%3A%20%24audioUrl%2C%20id%3A%20%24id%2C%20index%3A%20%24index%2C%20playlists%3A%20%24playlists%2C%20published%3A%20%24published%2C%20title%3A%20%24title)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                    <a href="http://127.0.0.1:8000/graphql/?query=mutation%20updateTopic(%24active%3A%20Boolean%2C%20%24audioUrl%3A%20String%2C%20%24id%3A%20ID!%2C%20%24index%3A%20Int%2C%20%24language%3A%20String%2C%20%24playlists%3A%20%5BID%5D%2C%20%24published%3A%20Boolean%2C%20%24title%3A%20String)%7B%0A%20%20updateTopic(active%3A%20%24active%2C%20audioUrl%3A%20%24audioUrl%2C%20id%3A%20%24id%2C%20index%3A%20%24index%2C%20language%3A%20%24language%2C%20playlists%3A%20%24playlists%2C%20published%3A%20%24published%2C%20title%3A%20%24title)%7B%0A%20%20%20%20ok%0A%20%20%20%20user%0A%20%20%7D%0A%7D" target="_blank">Try it now
                       <a/> </section>
               </div>
             </div>
@@ -3383,9 +4161,21 @@ http://127.0.0.1:8000/graphql/
         <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
         <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
         <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-        <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+        <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+        <span class="hljs-attr">&quot;language&quot;</span>: {
+          <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+          <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+        }
       }
-    ]
+    ],
+    <span class="hljs-attr">&quot;language&quot;</span>: {
+      <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
   }
 }
 </code></pre> </body>
@@ -3479,11 +4269,29 @@ http://127.0.0.1:8000/graphql/
             <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
             <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
             <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-            <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+            <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+            <span class="hljs-attr">&quot;language&quot;</span>: {
+              <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+              <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+              <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+              <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+            }
           }
-        ]
+        ],
+        <span class="hljs-attr">&quot;language&quot;</span>: {
+          <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+          <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+        }
       }
-    ]
+    ],
+    <span class="hljs-attr">&quot;language&quot;</span>: {
+      <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
   }
 }
 </code></pre> </body>
@@ -3530,6 +4338,15 @@ http://127.0.0.1:8000/graphql/
                     <dd>
                       <p>Username of the authenticated user</p>
                     </dd>
+                    <dt data-property-name="track">
+                      <span class="json-property-name">track:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/TrackType">TrackType</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
                   </dl>
                 </section>
               </div>
@@ -3541,7 +4358,25 @@ http://127.0.0.1:8000/graphql/
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">&quot;ok&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+  <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;track&quot;</span>: {
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+    <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;index&quot;</span>: <span class="hljs-string">&quot;number&quot;</span>,
+    <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;transcript&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;duration&quot;</span>: <span class="hljs-string">&quot;number&quot;</span>,
+    <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+    <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+    <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+    <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+    <span class="hljs-attr">&quot;language&quot;</span>: {
+      <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
+  }
 }
 </code></pre> </body>
                   </html>
@@ -4243,17 +5078,29 @@ http://127.0.0.1:8000/graphql/
                     <dd>
                       <p>Visible to user if true</p>
                     </dd>
-                    <dt data-property-name="tracks" class="has-description">
-                      <span class="json-property-name">tracks:</span>
+                    <dt data-property-name="language" class="has-description">
+                      <span class="json-property-name">language:</span>
                       <div class="json-property-type">
-                        <div class="json-schema-ref-array">
+                        <div class="">
                           <a class="json-schema-ref" href="#/definitions/ID">ID</a>
                         </div>
                       </div>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
                     <dd>
-                      <p>List of all the IDs of tracks this playlist contains</p>
+                      <p>ID of the language object</p>
+                    </dd>
+                    <dt data-property-name="topic" class="has-description">
+                      <span class="json-property-name">topic:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/ID">ID</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>ID of topic that this track belongs to</p>
                     </dd>
                   </dl>
                 </section>
@@ -4270,9 +5117,8 @@ http://127.0.0.1:8000/graphql/
   <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-  <span class="hljs-attr">&quot;tracks&quot;</span>: [
-    <span class="hljs-string">&quot;object&quot;</span>
-  ]
+  <span class="hljs-attr">&quot;language&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+  <span class="hljs-attr">&quot;topic&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>
 }
 </code></pre> </body>
                   </html>
@@ -4381,6 +5227,19 @@ http://127.0.0.1:8000/graphql/
                     <dd>
                       <p>A list of all the tracks this playlist contains.</p>
                     </dd>
+                    <dt data-property-name="language" class="has-description">
+                      <span class="json-property-name">language:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/LanguageType">LanguageType</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>The language of the track.</p>
+                    </dd>
                   </dl>
                 </section>
               </div>
@@ -4408,9 +5267,21 @@ http://127.0.0.1:8000/graphql/
       <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
       <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
       <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-      <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+      <span class="hljs-attr">&quot;language&quot;</span>: {
+        <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+        <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      }
     }
-  ]
+  ],
+  <span class="hljs-attr">&quot;language&quot;</span>: {
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+  }
 }
 </code></pre> </body>
                   </html>
@@ -4585,6 +5456,18 @@ http://127.0.0.1:8000/graphql/
                     <dd>
                       <p>List of all the IDs of playlists this topic contains</p>
                     </dd>
+                    <dt data-property-name="language" class="has-description">
+                      <span class="json-property-name">language:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/ID">ID</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>ID of the language object</p>
+                    </dd>
                   </dl>
                 </section>
               </div>
@@ -4602,7 +5485,8 @@ http://127.0.0.1:8000/graphql/
   <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
   <span class="hljs-attr">&quot;playlists&quot;</span>: [
     <span class="hljs-string">&quot;object&quot;</span>
-  ]
+  ],
+  <span class="hljs-attr">&quot;language&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>
 }
 </code></pre> </body>
                   </html>
@@ -4711,6 +5595,19 @@ http://127.0.0.1:8000/graphql/
                     <dd>
                       <p>A list of all the playlists this topic contains.</p>
                     </dd>
+                    <dt data-property-name="language" class="has-description">
+                      <span class="json-property-name">language:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/LanguageType">LanguageType</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>The language of the track.</p>
+                    </dd>
                   </dl>
                 </section>
               </div>
@@ -4746,11 +5643,29 @@ http://127.0.0.1:8000/graphql/
           <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
           <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
           <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-          <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+          <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+          <span class="hljs-attr">&quot;language&quot;</span>: {
+            <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+            <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+            <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+          }
         }
-      ]
+      ],
+      <span class="hljs-attr">&quot;language&quot;</span>: {
+        <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+        <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+        <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+      }
     }
-  ]
+  ],
+  <span class="hljs-attr">&quot;language&quot;</span>: {
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+  }
 }
 </code></pre> </body>
                   </html>
@@ -4856,6 +5771,30 @@ http://127.0.0.1:8000/graphql/
                     <dd>
                       <p>Visible to user if true</p>
                     </dd>
+                    <dt data-property-name="language" class="has-description">
+                      <span class="json-property-name">language:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/ID">ID</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>ID of the language object</p>
+                    </dd>
+                    <dt data-property-name="playlist" class="has-description">
+                      <span class="json-property-name">playlist:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/ID">ID</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>ID of playlist that this track belongs to</p>
+                    </dd>
                   </dl>
                 </section>
               </div>
@@ -4872,7 +5811,9 @@ http://127.0.0.1:8000/graphql/
   <span class="hljs-attr">&quot;transcript&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">&quot;duration&quot;</span>: <span class="hljs-string">&quot;number&quot;</span>,
   <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-  <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+  <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;language&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+  <span class="hljs-attr">&quot;playlist&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>
 }
 </code></pre> </body>
                   </html>
@@ -5021,6 +5962,19 @@ http://127.0.0.1:8000/graphql/
                     <dd>
                       <p>Decide whether this track is ready for users to see.</p>
                     </dd>
+                    <dt data-property-name="language" class="has-description">
+                      <span class="json-property-name">language:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/LanguageType">LanguageType</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>The language of the track.</p>
+                    </dd>
                   </dl>
                 </section>
               </div>
@@ -5040,7 +5994,13 @@ http://127.0.0.1:8000/graphql/
   <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
   <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
   <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-  <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+  <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+  <span class="hljs-attr">&quot;language&quot;</span>: {
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+    <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+    <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+  }
 }
 </code></pre> </body>
                   </html>
@@ -5197,9 +6157,21 @@ http://127.0.0.1:8000/graphql/
         <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
         <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
         <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-        <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+        <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+        <span class="hljs-attr">&quot;language&quot;</span>: {
+          <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+          <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+        }
       }
-    ]
+    ],
+    <span class="hljs-attr">&quot;language&quot;</span>: {
+      <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
   }
 }
 </code></pre> </body>
@@ -5293,11 +6265,29 @@ http://127.0.0.1:8000/graphql/
             <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
             <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
             <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-            <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+            <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+            <span class="hljs-attr">&quot;language&quot;</span>: {
+              <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+              <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+              <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+              <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+            }
           }
-        ]
+        ],
+        <span class="hljs-attr">&quot;language&quot;</span>: {
+          <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+          <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+          <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+        }
       }
-    ]
+    ],
+    <span class="hljs-attr">&quot;language&quot;</span>: {
+      <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
   }
 }
 </code></pre> </body>
@@ -5371,7 +6361,13 @@ http://127.0.0.1:8000/graphql/
     <span class="hljs-attr">&quot;createdAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
     <span class="hljs-attr">&quot;updatedAt&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
     <span class="hljs-attr">&quot;active&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
-    <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>,
+    <span class="hljs-attr">&quot;language&quot;</span>: {
+      <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;audioUrl&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+      <span class="hljs-attr">&quot;published&quot;</span>: <span class="hljs-string">&quot;boolean&quot;</span>
+    }
   },
   <span class="hljs-attr">&quot;user&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
