@@ -1,10 +1,10 @@
 # api-docs
 
-Access the docs here: https://audiopedia-t4sg.github.io/api-docs/
+Access the docs here: https://audiopedia.github.io/api-docs/
 
 ### How to update the docs
 
-1. Clone the `audiopedia-t4sg/api` repo.
+1. Clone the `audiopedia/api` repo.
 2. Navigate to `api/audiopedia`
 3. Install any necessary libraries/modules with `requirements.txt`
 4. Install dociql if you haven't already: `npm install -g dociql`
